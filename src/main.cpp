@@ -4,16 +4,28 @@ using namespace std;
 void afficherBornes(const float puiss[], const float dist[], int taille);
 int indice(const float dist[], int taille);
 int recharge(float capacite, float puiss[]);
+void modifier(float dist[], int indice, float nouvelledist);
 
 int main() {
   float puissances[5] = {50.0, 22.0, 11.0, 150.0, 7.4}; // en kW
   float distances[5] = {12.5, 35.0, 8.0, 60.0, 2.3};    // en km
   int capacite;
+  int i;
+  int ndist;
   cout<<"quelle capacité souhaitez-vous recharger ?"<<endl;
   cin>>capacite;
   recharge(capacite, puissances);
   afficherBornes(puissances, distances, 5);
   indice(distances, 5);
+
+  cout << "Quelle distance souhaitez-vous modifier ?" << endl;
+  cin >> ndist;
+  cout << "Dans quelle borne souhaitez-vous l'enregistrer ?" << endl;
+  cin >> i;
+
+  modifier(distances, i, ndist);
+
+  afficherBornes(puissances, distances, 5);
   return 0;
 }
 
@@ -37,7 +49,7 @@ int indice(const float dist[], int taille) {
     x=i+2;
   }
    cout<<"La borne la plus proche est à "<<min2<<"km"<<" à la borne "<<x<<endl;
-  return min2;
+  return x;
 }
 
 int recharge(float capacite, float puiss[]) {
@@ -47,4 +59,8 @@ int recharge(float capacite, float puiss[]) {
   int t=capacite/puiss[i-1];
   cout<<"Vous rechargerez votre véhicule en "<<t<<" heures."<<endl;
   return t;
+}
+
+void modifier(float dist[], int indice, float nouvelledist) {
+  dist[indice - 1] = nouvelledist;
 }
