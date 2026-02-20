@@ -18,10 +18,10 @@ int main() {
   afficherBornes(puissances, distances, 5);
   indice(distances, 5);
 
-  cout << "Quelle distance souhaitez-vous modifier ?" << endl;
-  cin >> ndist;
-  cout << "Dans quelle borne souhaitez-vous l'enregistrer ?" << endl;
+  cout << "Quelle borne souhaitez-vous modifier ?" << endl;
   cin >> i;
+  cout << "Quelle distance souhaitez-vous lui attribuer ?" << endl;
+  cin >> ndist;
 
   modifier(distances, i, ndist);
 
