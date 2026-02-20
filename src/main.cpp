@@ -3,10 +3,15 @@ using namespace std;
 
 void afficherBornes(const float puiss[], const float dist[], int taille);
 int indice(const float dist[], int taille);
+int recharge(float capacite, float puiss[]);
 
 int main() {
   float puissances[5] = {50.0, 22.0, 11.0, 150.0, 7.4}; // en kW
   float distances[5] = {12.5, 35.0, 8.0, 60.0, 2.3};    // en km
+  int capacite;
+  cout<<"quelle capacité souhaitez-vous recharger ?"<<endl;
+  cin>>capacite;
+  recharge(capacite, puissances);
   afficherBornes(puissances, distances, 5);
   indice(distances, 5);
   return 0;
@@ -33,4 +38,13 @@ int indice(const float dist[], int taille) {
   }
    cout<<"La borne la plus proche est à "<<min2<<"km"<<" à la borne "<<x<<endl;
   return min2;
+}
+
+int recharge(float capacite, float puiss[]) {
+  int i;
+  cout<<"quelle borne souhaitez-vous utiliser ?"<<endl;
+  cin>>i;
+  int t=capacite/puiss[i];
+  cout<<"Vous atteindrez votre destination en "<<t<<" heures."<<endl;
+  return t;
 }
