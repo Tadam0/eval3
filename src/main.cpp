@@ -44,7 +44,7 @@ int recharge(float capacite, float puiss[]) {
   int i;
   cout<<"quelle borne souhaitez-vous utiliser ?"<<endl;
   cin>>i;
-  int t=capacite/puiss[i];
-  cout<<"Vous atteindrez votre destination en "<<t<<" heures."<<endl;
+  int t=capacite/puiss[i-1];
+  cout<<"Vous rechargerez votre véhicule en "<<t<<" heures."<<endl;
   return t;
 }
