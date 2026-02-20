@@ -22,12 +22,15 @@ void afficherBornes(const float puiss[], const float dist[], int taille) {
 int indice(const float dist[], int taille) {
   int min = 0;
   int min2 = 0;
+  int x=0;
   for (int i = 0; i < taille-1; i++) {
     min = dist[i];
     min2 = dist[i+1];
     if (min<min2)
       min2=min;
+    min2=dist[i+1];
+    x=i+2;
   }
-   cout<<"La borne la plus proche est à : "<<min2<<"km"<<endl;
+   cout<<"La borne la plus proche est à "<<min2<<"km"<<" à la borne "<<x<<endl;
   return min2;
 }
